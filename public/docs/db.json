@@ -1,0 +1,116 @@
+[
+    {
+        "id": 1,
+        "label": "Reset memory cache",
+        "textCode": "/etc/init.d/memcached restart",
+        "last_copied": 0
+    },
+    {
+        "id": 2,
+        "label": "Launch full private",
+        "textCode": "php /home/netrivals/netrivals.php -tprivate -sfull -c0 -f -i",
+        "last_copied": 0
+    },
+    {
+        "id": 3,
+        "label": "Launch full private background process",
+        "textCode": "nohup php /home/netrivals/netrivals.php -tprivate -sfull -c0 -f -iSTOREID > /tmp/fullprivate-STOREID.log &",
+        "last_copied": 0
+    },
+    {
+        "id": 4,
+        "label": "Launch amazon process",
+        "textCode": "php /home/netrivals/processes/connections_maker/amazon.connection.maker.php storeid=30556   started=automatic ignore_discarded=0",
+        "last_copied": 0
+    },
+    {
+        "id": 5,
+        "label": "Reset memory cache",
+        "textCode": "/etc/init.d/memcached restart",
+        "last_copied": 0
+    },
+    {
+        "id": 6,
+        "label": "Launch full private",
+        "textCode": "php /home/netrivals/netrivals.php -tprivate -sfull -c0 -f -i",
+        "last_copied": 0
+    },
+    {
+        "id": 7,
+        "label": "Launch full private background process",
+        "textCode": "nohup php /home/netrivals/netrivals.php -tprivate -sfull -c0 -f -iSTOREID > /tmp/fullprivate-STOREID.log &",
+        "last_copied": 0
+    },
+    {
+        "id": 8,
+        "label": "Launch amazon process",
+        "textCode": "php /home/netrivals/processes/connections_maker/amazon.connection.maker.php storeid=30556   started=automatic ignore_discarded=0",
+        "last_copied": 0
+    },
+    {
+        "id": 9,
+        "label": "Launch full private background process",
+        "textCode": "nohup php /home/netrivals/netrivals.php -tprivate -sfull -c0 -f -iSTOREID > /tmp/fullprivate-STOREID.log &",
+        "last_copied": 0
+    },
+    {
+        "id": 10,
+        "label": "Launch amazon process",
+        "textCode": "php /home/netrivals/processes/connections_maker/amazon.connection.maker.php storeid=30556   started=automatic ignore_discarded=0",
+        "last_copied": 0
+    },
+    {
+        "id": 11,
+        "label": "Reset memory cache",
+        "textCode": "/etc/init.d/memcached restart",
+        "last_copied": 0
+    },
+    {
+        "id": 12,
+        "label": "Launch full private",
+        "textCode": "php /home/netrivals/netrivals.php -tprivate -sfull -c0 -f -i",
+        "last_copied": 0
+    },
+    {
+        "id": 13,
+        "label": "Launch full private background process",
+        "textCode": "nohup php /home/netrivals/netrivals.php -tprivate -sfull -c0 -f -iSTOREID > /tmp/fullprivate-STOREID.log &",
+        "last_copied": 0
+    },
+    {
+        "id": 14,
+        "label": "Launch amazon process",
+        "textCode": "php /home/netrivals/processes/connections_maker/amazon.connection.maker.php storeid=30556   started=automatic ignore_discarded=0",
+        "last_copied": 0
+    },
+    {
+        "id": 15,
+        "label": "Reset memory cache",
+        "textCode": "/etc/init.d/memcached restart",
+        "last_copied": 0
+    },
+    {
+        "id": 16,
+        "label": "Launch full private",
+        "textCode": "php /home/netrivals/netrivals.php -tprivate -sfull -c0 -f -i",
+        "last_copied": 0
+    },
+    {
+        "id": 17,
+        "label": "Launch full private background process",
+        "textCode": "nohup php /home/netrivals/netrivals.php -tprivate -sfull -c0 -f -iSTOREID > /tmp/fullprivate-STOREID.log &",
+        "last_copied": 0
+    },
+    {
+        "id": 18,
+        "label": "Launch amazon process",
+        "textCode": "php /home/netrivals/processes/connections_maker/amazon.connection.maker.php storeid=30556   started=automatic ignore_discarded=0",
+        "last_copied": 0
+    },
+    {
+        "id": 19,
+        "label": "Launch full private background process",
+        "textCode": "nohup php /home/netrivals/netrivals.php -tprivate -sfull -c0 -f -iSTOREID > /tmp/fullprivate-STOREID.log &",
+        "last_copied": 0
+    }
+]
