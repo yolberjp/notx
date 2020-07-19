@@ -3,37 +3,45 @@
         "id": 1,
         "label": "Reset memory cache",
         "textCode": "/etc/init.d/memcached restart",
-        "last_copied": 0
+        "info": "Restaura la memoria cache para obtener los ultimos cambios.",
+        "last_copied": 0,
+        "favorite": true
     },
     {
         "id": 2,
         "label": "Launch full private",
         "textCode": "php /home/netrivals/netrivals.php -tprivate -sfull -c0 -f -i",
-        "last_copied": 0
+        "info": "Lanzar la full privada de una cuenta en process2.netrivals.com (-f = force)",
+        "last_copied": 0,
+        "favorite": false
     },
     {
         "id": 3,
         "label": "Launch full private background process",
         "textCode": "nohup php /home/netrivals/netrivals.php -tprivate -sfull -c0 -f -iSTOREID > /tmp/fullprivate-STOREID.log &",
-        "last_copied": 0
+        "last_copied": 0,
+        "favorite": true
     },
     {
         "id": 4,
         "label": "Launch amazon process",
-        "textCode": "php /home/netrivals/processes/connections_maker/amazon.connection.maker.php storeid=30556   started=automatic ignore_discarded=0",
-        "last_copied": 0
+        "textCode": "php /home/netrivals/processes/connections_maker/amazon.connection.maker.php started=automatic ignore_discarded=0 storeid=",
+        "last_copied": 0,
+        "favorite": true
     },
     {
         "id": 5,
         "label": "Reset memory cache",
-        "textCode": "/etc/init.d/memcached restart",
-        "last_copied": 0
+        "textCode": "select b.*\n   #select b.StoreID, B.ByTitle, ByREF, ByMPN, ByEAN\nfrom customer_store_channel_rivals CSCR\ninner join biter b\non b.storeid = CSCR.rivalid\nwhere CSCR.storeid = 29890 and CSCR.statusid = 1\nAND b.Active = 1",
+        "last_copied": 0,
+        "favorite": false
     },
     {
         "id": 6,
         "label": "Launch full private",
         "textCode": "php /home/netrivals/netrivals.php -tprivate -sfull -c0 -f -i",
-        "last_copied": 0
+        "last_copied": 0,
+        "favorite": true
     },
     {
         "id": 7,
@@ -78,39 +86,15 @@
         "last_copied": 0
     },
     {
-        "id": 14,
-        "label": "Launch amazon process",
-        "textCode": "php /home/netrivals/processes/connections_maker/amazon.connection.maker.php storeid=30556   started=automatic ignore_discarded=0",
+        "id": 13,
+        "label": "Launch full private background process",
+        "textCode": "nohup php /home/netrivals/netrivals.php -tprivate -sfull -c0 -f -iSTOREID > /tmp/fullprivate-STOREID.log &",
         "last_copied": 0
     },
     {
         "id": 15,
         "label": "Reset memory cache",
         "textCode": "/etc/init.d/memcached restart",
-        "last_copied": 0
-    },
-    {
-        "id": 16,
-        "label": "Launch full private",
-        "textCode": "php /home/netrivals/netrivals.php -tprivate -sfull -c0 -f -i",
-        "last_copied": 0
-    },
-    {
-        "id": 17,
-        "label": "Launch full private background process",
-        "textCode": "nohup php /home/netrivals/netrivals.php -tprivate -sfull -c0 -f -iSTOREID > /tmp/fullprivate-STOREID.log &",
-        "last_copied": 0
-    },
-    {
-        "id": 18,
-        "label": "Launch amazon process",
-        "textCode": "php /home/netrivals/processes/connections_maker/amazon.connection.maker.php storeid=30556   started=automatic ignore_discarded=0",
-        "last_copied": 0
-    },
-    {
-        "id": 19,
-        "label": "Launch full private background process",
-        "textCode": "nohup php /home/netrivals/netrivals.php -tprivate -sfull -c0 -f -iSTOREID > /tmp/fullprivate-STOREID.log &",
         "last_copied": 0
     }
 ]

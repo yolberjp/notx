@@ -4,16 +4,24 @@
             <b-button class="icon" v-b-tooltip.hover title="Copy" @click="copy">
                 <b-icon icon="clipboard" aria-hidden="true"></b-icon>
             </b-button>
-            <b-button class="icon" v-b-tooltip.hover title="Star">
-                <b-icon icon="star" aria-hidden="true"></b-icon>
+            <b-button class="icon" v-b-tooltip.hover title="Star" @click="setFavorite">
+                <b-icon v-if="node.favorite==true" icon="star-fill" aria-hidden="true"></b-icon>
+                <b-icon v-else icon="star" aria-hidden="true"></b-icon>
+
             </b-button>
-            <b-button class="icon" v-b-tooltip.hover title="Info">
+            <b-button class="icon" v-b-tooltip.hover title="Info" @click="showInfo" transition="fadeIn">
                 <b-icon icon="info-circle" aria-hidden="true"></b-icon>
             </b-button>
       </b-button-group>
 
-        <span class="label"><b class="tc-logo">></b> {{label}}</span>
-        <pre class="unselectable" @dblclick="copy">{{textCode}}</pre>
+        <span class="label"><b class="tc-logo">></b> {{node.label}}</span>
+        <pre class="unselectable" @dblclick="copy">{{node.textCode}}</pre>
+
+        <transition name="fade">
+            <p class="info" v-show="moreInfo">
+                {{node.info}}
+            </p>
+        </transition>
 
     </div>
 </template>
@@ -26,19 +34,27 @@ export default {
         return {
             id:4,
             copied: false,
+            moreInfo: false
 
         }
     },
     methods:{
         async copy() {
-            await navigator.clipboard.writeText(this.textCode);
+            await navigator.clipboard.writeText(this.node.textCode);
             this.copied = true;
             setTimeout(function () { this.copied = false }.bind(this), 2000);
+        },
+        setFavorite(){
+            this.node.favorite = !this.node.favorite;
+        },
+        showInfo(){
+            if(this.node.info){
+                this.moreInfo = !this.moreInfo;
+            }
         }
     },
     props:[
-        'label',
-        'textCode',
+        'node',
     ]
 }
 </script>
@@ -132,5 +148,22 @@ span.label{
 .tc-logo{
     color: #f36d33;
 }
+
+p.info{
+    margin: auto;
+    width: 95%;
+    padding: 20px;
+    background-color: #1a1a1a;
+    border-radius: 10px;
+    color: #919191;
+}
+
+.fade-enter-active, .fade-leave-active {
+  transition: opacity .5s;
+}
+.fade-enter, .fade-leave-to {
+  opacity: 0;
+}
+
 
 </style>

@@ -13,9 +13,17 @@
 
             <!-- Right aligned nav items -->
             <b-navbar-nav class="ml-auto" >
-                <b-nav-form class="search" form>
-                    <b-form-input ref="searchbox" size="md" autocomplete="off" class="mr-md-2" placeholder="Search"></b-form-input>
-                    <!-- <b-button size="sm" class="my-2 my-sm-0" type="submit">Search</b-button> -->
+                <b-nav-form class="search" spellcheck="false" @submit.prevent="search">
+                    <b-form-input 
+                        ref="searchbox" 
+                        size="md" 
+                        autocomplete="off" 
+                        class="mr-md-2" 
+                        placeholder="Search"
+                        v-model="searchText"
+                        @keyup="listenSearch"
+                        v-on:keyup.8="restartSearch"
+                    ></b-form-input>
                 </b-nav-form>
             </b-navbar-nav>
             </b-collapse>
@@ -24,15 +32,17 @@
 </template>
 
 <script>
+
     export default {
         data(){
             return {
                 id:4,
                 copied: false,
+                searchText: ""
 
             }
         },
-        mounted() {
+        mounted(){
             this._keyListener = function(e) {
                 if (e.key === "f" && (e.ctrlKey || e.metaKey)) {
                     e.preventDefault(); // present "Save Page" from getting triggered.
@@ -48,6 +58,31 @@
         methods:{
             focusSearch(){
                 this.$refs.searchbox.$el.focus();
+            },
+            search(){
+                let filter = '';
+                let _query = this.searchText;
+                if(this.searchText[0]=='#'){
+                    filter = this.searchText.split(' ')[0];
+                    _query = this.searchText.replace(filter, '').trim();
+
+                    if(_query){
+                        this.$store.dispatch("search", {text: _query, perPage:10, filter})
+                    }   
+                }else{
+                    this.$store.dispatch("search", {text: _query, perPage:10, filter})
+                }
+            },
+            listenSearch(){
+                if(this.searchText.length>=2){
+                    this.search();
+                }
+                
+            },
+            restartSearch(){
+                if(!this.searchText){
+                    this.search();
+                }
             }
         }
     }
@@ -64,7 +99,7 @@
     }
 
     #nav a.router-link-exact-active{
-        color: #fff;
+        color: #ababab;
     }
 
     .search input{
@@ -72,6 +107,8 @@
         color: #f36d33;
         border: none;
         width: 400px;
+        text-decoration: none;
+        
 
         &:focus{
             box-shadow: none;
