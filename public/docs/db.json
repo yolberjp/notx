@@ -1,100 +1,326 @@
 [
     {
         "id": 1,
-        "label": "Reset memory cache",
-        "textCode": "/etc/init.d/memcached restart",
-        "info": "Restaura la memoria cache para obtener los ultimos cambios.",
+        "title": "Reset memory cache",
+        "value": "/etc/init.d/memcached restart",
+        "desc": "Restaura la memoria cache para obtener los ultimos cambios.",
         "last_copied": 0,
-        "favorite": true
+        "favorite": true,
+        "tags":[
+            "command"
+        ]
     },
     {
         "id": 2,
-        "label": "Launch full private",
-        "textCode": "php /home/netrivals/netrivals.php -tprivate -sfull -c0 -f -i",
-        "info": "Lanzar la full privada de una cuenta en process2.netrivals.com (-f = force)",
+        "title": "Full private",
+        "value": "php /home/netrivals/netrivals.php -tprivate -sfull -c0 -f -i",
+        "desc": "Launch full process for private store. Params -f:force -i:storeid",
         "last_copied": 0,
-        "favorite": false
+        "favorite": false,
+        "tags":[
+            "command",
+            "private",
+            "full"
+        ]
     },
     {
         "id": 3,
-        "label": "Launch full private background process",
-        "textCode": "nohup php /home/netrivals/netrivals.php -tprivate -sfull -c0 -f -iSTOREID > /tmp/fullprivate-STOREID.log &",
+        "title": "Full private --background",
+        "value": "nohup php /home/netrivals/netrivals.php -tprivate -sfull -c0 -f -i00000 > /tmp/fullprivate-00000.log &",
+        "desc": "Launch full process for private store in background process. Generate a log file",
         "last_copied": 0,
-        "favorite": true
+        "favorite": false,
+        "tags":[
+            "command",
+            "private",
+            "full",
+            "background"
+        ]
     },
     {
         "id": 4,
-        "label": "Launch amazon process",
-        "textCode": "php /home/netrivals/processes/connections_maker/amazon.connection.maker.php started=automatic ignore_discarded=0 storeid=",
+        "title": "Store photo directory",
+        "value": "cd /home/data/netrivals_import_photos/00000/private/photos/",
+        "desc": "Store photo directory in process2.netrivals.com",
         "last_copied": 0,
-        "favorite": true
+        "favorite": false,
+        "tags":[
+            "private",
+            "photos"
+        ]
     },
     {
         "id": 5,
-        "label": "Reset memory cache",
-        "textCode": "select b.*\n   #select b.StoreID, B.ByTitle, ByREF, ByMPN, ByEAN\nfrom customer_store_channel_rivals CSCR\ninner join biter b\non b.storeid = CSCR.rivalid\nwhere CSCR.storeid = 29890 and CSCR.statusid = 1\nAND b.Active = 1",
+        "title": "Full public --sitemap",
+        "value": "php /home/netrivals/netrivals.php -tpublic -sfull -mSitemap -f -i00000",
+        "desc": "Launch public full store by sitemap. Launch process in spider",
         "last_copied": 0,
-        "favorite": false
+        "favorite": false,
+        "tags":[
+            "command",
+            "public",
+            "full",
+            "sitemap"
+        ]
     },
     {
         "id": 6,
-        "label": "Launch full private",
-        "textCode": "php /home/netrivals/netrivals.php -tprivate -sfull -c0 -f -i",
+        "title": "Full public --sitemap --background",
+        "value": "nohup php /home/netrivals/netrivals.php -tpublic -sfull -mSitemap -f -i00000 > /tmp/00000.out &",
+        "desc": "Launch public full store by sitemap in background process.",
         "last_copied": 0,
-        "favorite": true
+        "favorite": false,
+        "tags":[
+            "command",
+            "public",
+            "full",
+            "sitemap",
+            "background" 
+        ]
     },
     {
         "id": 7,
-        "label": "Launch full private background process",
-        "textCode": "nohup php /home/netrivals/netrivals.php -tprivate -sfull -c0 -f -iSTOREID > /tmp/fullprivate-STOREID.log &",
-        "last_copied": 0
+        "title": "Full public --supercrawler",
+        "value": "php /home/netrivals/netrivals.php -tpublic -sfull -mSupercrawler -f -i00000",
+        "desc": "Launch public full store by supercrawler. Launch process in spider",
+        "last_copied": 0,
+        "favorite": false,
+        "tags":[
+            "command",
+            "public",
+            "full",
+            "supercrawler"
+        ]
     },
     {
         "id": 8,
-        "label": "Launch amazon process",
-        "textCode": "php /home/netrivals/processes/connections_maker/amazon.connection.maker.php storeid=30556   started=automatic ignore_discarded=0",
-        "last_copied": 0
+        "title": "Full public --supercrawler --background",
+        "value": "nohup php /home/netrivals/netrivals.php -tpublic -sfull -mSupercrawler -f -i00000 > /tmp/00000.out &",
+        "desc": "Launch public full store by supercrawler in background process.",
+        "last_copied": 0,
+        "favorite": false,
+        "tags":[
+            "command",
+            "public",
+            "full",
+            "supercrawler",
+            "background" 
+        ]
     },
     {
         "id": 9,
-        "label": "Launch full private background process",
-        "textCode": "nohup php /home/netrivals/netrivals.php -tprivate -sfull -c0 -f -iSTOREID > /tmp/fullprivate-STOREID.log &",
-        "last_copied": 0
+        "title": "Full public --fullmode",
+        "value": "php /home/netrivals/netrivals.php -tpublic -sfull -mfull -f -i00000",
+        "desc": "Launch public full store by fullmode. Launch process in spider",
+        "last_copied": 0,
+        "favorite": false,
+        "tags":[
+            "command",
+            "public",
+            "full",
+            "fullmode"
+        ]
     },
     {
         "id": 10,
-        "label": "Launch amazon process",
-        "textCode": "php /home/netrivals/processes/connections_maker/amazon.connection.maker.php storeid=30556   started=automatic ignore_discarded=0",
-        "last_copied": 0
+        "title": "Full public --fullmode --background",
+        "value": "nohup php /home/netrivals/netrivals.php -tpublic -mfull -mSupercrawler -f -i00000 > /tmp/00000.out &",
+        "desc": "Launch public full store by fullmode in background process.",
+        "last_copied": 0,
+        "favorite": false,
+        "tags":[
+            "command",
+            "public",
+            "full",
+            "fullmode",
+            "background"
+        ]
     },
     {
         "id": 11,
-        "label": "Reset memory cache",
-        "textCode": "/etc/init.d/memcached restart",
-        "last_copied": 0
+        "title": "Update product by url",
+        "value": "php /home/netrivals/netrivals.php -tpublic -sdetails -u1 -l\"https://domain.com/product\" -i00000 -r542322316364",
+        "desc": "Update product by url from spider",
+        "last_copied": 0,
+        "favorite": false,
+        "tags":[
+            "command",
+            "public",
+            "url"
+        ]
     },
     {
         "id": 12,
-        "label": "Launch full private",
-        "textCode": "php /home/netrivals/netrivals.php -tprivate -sfull -c0 -f -i",
-        "last_copied": 0
+        "title": "Biter",
+        "value": "cd /home/netrivals/daemons/\nphp daemon.biter.launcher.manual.php chunk=false privatestoreid=",
+        "desc": "Launch biter process for all rivals. chunk:true launch 10 sub-process",
+        "last_copied": 0,
+        "favorite": false,
+        "tags":[
+            "command",
+            "biter",
+            "private"
+        ]
     },
     {
         "id": 13,
-        "label": "Launch full private background process",
-        "textCode": "nohup php /home/netrivals/netrivals.php -tprivate -sfull -c0 -f -iSTOREID > /tmp/fullprivate-STOREID.log &",
-        "last_copied": 0
+        "title": "All bitters by privatestore",
+        "value": "SELECT\n  CONCAT(\n       'nohup php daemon.biter.store.php publicstoreid=',\n        b.StoreID,\n        ' privatestoreid=',\n       CSCR.StoreID,\n     ' >> /home/tmp/biter_',\n       b.StoreID,'_',\n        CSCR.StoreID,'.log &'\n )\nFROM customer_store_channel_rivals CSCR\nINNER JOIN biter b\nON b.storeid = CSCR.rivalid\nWHERE CSCR.storeid = 00000 and CSCR.statusid = 1\nAND b.Active = 1",
+        "desc": "Select all the bitters in a store",
+        "last_copied": 0,
+        "favorite": false,
+        "tags":[
+            "sql",
+            "biter",
+            "private"
+        ]
     },
     {
-        "id": 13,
-        "label": "Launch full private background process",
-        "textCode": "nohup php /home/netrivals/netrivals.php -tprivate -sfull -c0 -f -iSTOREID > /tmp/fullprivate-STOREID.log &",
-        "last_copied": 0
+        "id": 14,
+        "title": "Connections privateCode and publicUrl",
+        "value": "SELECT\n    c.PrivateCode,\n    pp.URL \nFROM\n    connections c\n    INNER JOIN products_public pp ON c.publicCode = pp.`Code` \n    AND c.PublicStoreID = pp.storeid\n    INNER JOIN products p ON c.PrivateCode = p.`Code` \nWHERE\n    c.PublicStoreID = 00000 \n    AND p.active = 1",
+        "desc": "Select all privatecode and public url of connection between privatestore and rival",
+        "last_copied": 0,
+        "favorite": false,
+        "tags":[
+            "sql",
+            "biter",
+            "private"
+        ]
     },
     {
         "id": 15,
-        "label": "Reset memory cache",
-        "textCode": "/etc/init.d/memcached restart",
-        "last_copied": 0
+        "title": "Crawlera headers",
+        "value": "// CRAWLERA HEADER\n$custom_headers[]='X-Crawlera-Profile: desktop';\n$custom_headers[]='X-Crawlera-Cookies: disable';",
+        "desc": "Headers to use crawlera proxys",
+        "last_copied": 0,
+        "favorite": false,
+        "tags":[
+            "headers",
+            "crawlera",
+            "script"
+        ]
+    },
+    {
+        "id": 16,
+        "title": "Export data private",
+        "value": "cd /home/netrivals/processes && php brands_export_products.php 00000",
+        "desc": "Export all data in .csv file of private store",
+        "last_copied": 0,
+        "favorite": false,
+        "tags":[
+            "command",
+            "feed",
+            "private"
+        ]
+    },
+    {
+        "id": 17,
+        "title": "Aspersor process",
+        "value": "php /home/netrivals/processes/googleshopping/passive_connections_by_google_info.php 00000",
+        "desc": "Launch google passive connections proccess to privatesoreid",
+        "last_copied": 0,
+        "favorite": false,
+        "tags":[
+            "command",
+            "google"
+        ]
+    },
+    {
+        "id": 18,
+        "title": "All biters grouped by storeidlogical",
+        "value": "SELECT\n     * \nFROM\n     biter \nWHERE\n     StoreID IN (\n     SELECT\n     ipp.StoreID \n     FROM\n     imports_params_public ipp\n     INNER JOIN stores s ON s.StoreID = ipp.StoreID\n     LEFT JOIN biter b ON ipp.StoreID = b.StoreID \nWHERE\n     ( ipp.StoreIDLogical = 00000 OR ipp.StoreID = 00000 ))",
+        "desc": "",
+        "last_copied": 0,
+        "favorite": false,
+        "tags":[
+            "sql",
+            "biter"
+        ]
+    },
+    {
+        "id": 19,
+        "title": "All biters in a store",
+        "value": "SELECT\n     #b.StoreID, B.ByTitle, ByREF, ByMPN, ByEAN\n     b.* \nFROM\n     customer_store_channel_rivals CSCR\n     INNER JOIN biter b ON b.storeid = CSCR.rivalid \nWHERE\n     CSCR.storeid = 29890 \n     AND CSCR.statusid = 1 \n     AND b.Active = 1",
+        "desc": "Show all biters from rivals a privatestore",
+        "last_copied": 0,
+        "favorite": false,
+        "tags":[
+            "sql",
+            "biter",
+            "private"
+        ]
+    },
+    {
+        "id": 20,
+        "title": "Fix title",
+        "value": "$_title = $p[\"name__default\"];\ntitle = utf8_decode($_title);\n$_title = iconv(\"WINDOWS-1252\", \"UTF-8\", strval($_title));\n$import->title($_title);",
+        "desc": "Fix title with superindice",
+        "last_copied": 0,
+        "favorite": false,
+        "tags":[
+            "script",
+            "private"
+        ]
+    },
+    {
+        "id": 21,
+        "title": "Amazon connection maker",
+        "value": "php /home/netrivals/processes/connections_maker/amazon.connection.maker.php started=automatic ignore_discarded=0 storeid=00000",
+        "desc": "Launch Amazon connection maker for new connections",
+        "last_copied": 0,
+        "favorite": false,
+        "tags":[
+            "command",
+            "amazon"
+        ]
+    },
+    {
+        "id": 22,
+        "title": "Google connection maker",
+        "value": "php /home/netrivals/processes/connections_maker/google.connection.maker.php started=automatic ignore_discarded=0 storeid=00000",
+        "desc": "Launch Google connection maker for new connections",
+        "last_copied": 0,
+        "favorite": false,
+        "tags":[
+            "command",
+            "google"
+        ]
+    },
+    {
+        "id": 23,
+        "title": "Url remove all params",
+        "value": "function nr_url_remove_all_params($url){\n    if(stripos($url, '?')!==false){\n        nr_match('>>>>(.*?)\\?', '>>>>'.$url, $url);\n    }\n    \n    if(stripos($url, '#')!==false){\n        nr_match('>>>>(.*?)\\#', '>>>>'.$url, $url);\n    }\n    \n    return $url;\n}",
+        "desc": "functtion to remove all params",
+        "last_copied": 0,
+        "favorite": false,
+        "tags":[
+            "script",
+            "function"
+        ]
+    },
+    {
+        "id": 24,
+        "title": "MAIN URL",
+        "value": "// MAIN URL\n$_url_parsed = parse_url($url);\n$_main_url = $_url_parsed['scheme'].'://'.$_url_parsed['host'];",
+        "desc": "Extract baseurl from url product",
+        "last_copied": 0,
+        "favorite": false,
+        "tags":[
+            "script"
+        ]
+    },
+    {
+        "id": 25,
+        "title": "FTP Path",
+        "value": "https://user:password@host.domain.tld/path",
+        "desc": "FTP path example",
+        "last_copied": 0,
+        "favorite": false,
+        "tags":[
+            "ftp"
+        ]
     }
 ]
+
+

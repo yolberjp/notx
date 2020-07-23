@@ -14,12 +14,12 @@
             </b-button>
       </b-button-group>
 
-        <span class="label"><b class="tc-logo">></b> {{node.label}}</span>
-        <pre class="unselectable" @dblclick="copy">{{node.textCode}}</pre>
+        <span class="label"><b class="tc-logo">></b> {{node.title}}</span>
+        <pre class="unselectable" @dblclick="copy">{{node.value}}</pre>
 
-        <transition name="fade">
+        <transition name="fadein">
             <p class="info" v-show="moreInfo">
-                {{node.info}}
+                {{node.desc}}
             </p>
         </transition>
 
@@ -32,23 +32,32 @@ export default {
     name: 'blockcode',
     data(){
         return {
-            id:4,
             copied: false,
             moreInfo: false
 
         }
     },
+    
     methods:{
         async copy() {
-            await navigator.clipboard.writeText(this.node.textCode);
+            await navigator.clipboard.writeText(this.node.value);
             this.copied = true;
             setTimeout(function () { this.copied = false }.bind(this), 2000);
+        },
+        setStoreid(value){
+            const storeid = "423432";
+
+            if(value.indexOf("00000")!=-1){
+                return value.replace(/00000/g, storeid);
+            }
+
+            return value;
         },
         setFavorite(){
             this.node.favorite = !this.node.favorite;
         },
         showInfo(){
-            if(this.node.info){
+            if(this.node.desc){
                 this.moreInfo = !this.moreInfo;
             }
         }

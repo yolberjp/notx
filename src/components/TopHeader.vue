@@ -45,7 +45,7 @@
         mounted(){
             this._keyListener = function(e) {
                 if (e.key === "f" && (e.ctrlKey || e.metaKey)) {
-                    e.preventDefault(); // present "Save Page" from getting triggered.
+                    e.preventDefault();
                     window.scrollTo(0, 0);
                     this.focusSearch();
                 }

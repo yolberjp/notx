@@ -66,7 +66,8 @@ export default new Vuex.Store({
     async search({commit, dispatch}, {text, perPage, filter}){
       const myJson = await this.dispatch("fetchData");
       const values = myJson.filter(val=>
-        val.textCode.toLowerCase().includes(text.toLowerCase())
+        val.title.toLowerCase().includes(text.toLowerCase()) ||
+        val.value.toLowerCase().includes(text.toLowerCase())
       );
       commit("SET_TAGS", filter);
       dispatch("updatePagination", {myJson: values, currentPage: 1, perPage})
