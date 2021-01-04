@@ -13,7 +13,7 @@
     {
         "id": 2,
         "title": "Full private",
-        "value": "php /home/netrivals/netrivals.php -tprivate -sfull -c0 -f -i",
+        "value": "php /home/netrivals/netrivals.php -tprivate -sfull -c0 -f -i00000",
         "desc": "Launch full process for private store. Params -f:force -i:storeid",
         "last_copied": 0,
         "favorite": false,
@@ -124,7 +124,7 @@
     {
         "id": 10,
         "title": "Full public --fullmode --background",
-        "value": "nohup php /home/netrivals/netrivals.php -tpublic -mfull -mSupercrawler -f -i00000 > /tmp/00000.out &",
+        "value": "nohup php /home/netrivals/netrivals.php -tpublic -sfull -mfull -f -i00000 > /tmp/00000.out &",
         "desc": "Launch public full store by fullmode in background process.",
         "last_copied": 0,
         "favorite": false,
@@ -139,7 +139,7 @@
     {
         "id": 11,
         "title": "Update product by url",
-        "value": "php /home/netrivals/netrivals.php -tpublic -sdetails -u1 -l\"https://domain.com/product\" -i00000 -r542322316364",
+        "value": "php /home/netrivals/netrivals.php -tpublic -sdetails -u1 -i00000 -r542322316364 -l\"\"",
         "desc": "Update product by url from spider",
         "last_copied": 0,
         "favorite": false,
@@ -320,7 +320,21 @@
         "tags":[
             "ftp"
         ]
+    },
+    {
+        "id": 25,
+        "title": "Idealo connections maker",
+        "value": "php /home/netrivals/processes/connections_maker/idealo.connection.maker.php storeid=00000 started=automatic ignore_discarded=1",
+        "desc": "Launch Idealo connection maker for new connections",
+        "last_copied": 0,
+        "favorite": false,
+        "tags":[
+            "ftp"
+        ]
     }
+
+
+    
 ]
 
 

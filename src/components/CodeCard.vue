@@ -40,22 +40,28 @@ export default {
     
     methods:{
         async copy() {
-            await navigator.clipboard.writeText(this.node.value);
+
+            let txt = await this.setStoreid(this.node.value);
+
+            await navigator.clipboard.writeText(txt);
             this.copied = true;
+
             setTimeout(function () { this.copied = false }.bind(this), 2000);
         },
-        setStoreid(value){
-            const storeid = "423432";
+        async setStoreid(value){
+            
+            const storeid = await navigator.clipboard.readText();
 
-            if(value.indexOf("00000")!=-1){
+            if(!isNaN(storeid) && value.indexOf("00000")!=-1){
                 return value.replace(/00000/g, storeid);
             }
-
             return value;
         },
+
         setFavorite(){
             this.node.favorite = !this.node.favorite;
         },
+
         showInfo(){
             if(this.node.desc){
                 this.moreInfo = !this.moreInfo;

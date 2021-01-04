@@ -2,7 +2,7 @@
   <div class="home">
     <div class="container">
 
-      <div class="header m-3 mb-5">
+      <div class="header mt-5 mb-5 text-right">
 
         <div class="tag-list col-md-8">
           <a href="" v-for="tag in tags" :key="tag">
